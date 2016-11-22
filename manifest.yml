@@ -1,0 +1,7 @@
+---
+  applications:
+  - name: jeanie-api
+    memory: 128M
+    instances: 1
+    buildpack: ruby_buildpack
+    host: jeanie-api
