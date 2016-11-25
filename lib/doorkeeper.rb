@@ -6,12 +6,17 @@ module OmniAuth
       option :name, 'doorkeeper'
       option :client_options, {
         site:          'http://localhost:3000',
-        authorize_url: 'http://localhost:3000/oauth/authorize'
+        authorize_url: 'http://localhost:3000/oauth/authorize',
+        token_url: 'http://localhost:3000/oauth/token'
       }
 
       uid {
         raw_info['id']
       }
+
+      def callback_url
+        full_host + script_name + callback_path
+      end
 
       info do
         {
